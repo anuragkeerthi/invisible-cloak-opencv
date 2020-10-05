@@ -29,6 +29,11 @@ while capture.isOpened():
 
         cv2.imshow("cloak", replace_background + replace_frame)
 
+        """ final_image = replace_background + replace_frame
+        final_image = cv2.morphologyEx(final_image, cv2.MORPH_OPEN, np.ones((3,3), np.uint8), iterations=2) # To remove Noise
+        final_image = cv2.morphologyEx(final_image, cv2.MORPH_DILATE, np.ones((3,3), np.uint8), iterations=1) 
+        cv2.imshow("Cloak", final_image) """
+
         if cv2.waitKey(5) == ord('q'):
             break
 
