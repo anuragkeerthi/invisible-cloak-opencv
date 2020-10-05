@@ -20,10 +20,14 @@ while capture.isOpened():
         #cv2.imshow("mask", mask)
 
         replace_background = cv2.bitwise_and(background_image,background_image, mask=mask)
-        cv2.imshow("replace_background", replace_background)
+        #cv2.imshow("replace_background", replace_background)
+
+        mask = cv2.bitwise_not(mask)
 
         replace_frame = cv2.bitwise_and(frame, frame, mask=mask)
-        cv2.imshow("mask", replace_frame)
+        #cv2.imshow("mask", replace_frame)
+
+        cv2.imshow("cloak", replace_background + replace_frame)
 
         if cv2.waitKey(5) == ord('q'):
             break
